@@ -1,0 +1,16 @@
+<div>
+  <div>
+     <%= render 'books/new', book: Book.new %>
+  </div>
+  <h1>Book detail</h1>
+  <div>
+    <%= attachment_image_tag @book.user, :profile_image_id %>
+    <p><%= @book.title %></p>
+    <p><%= @book.body %></p>
+    <% if @book.user == current_user %>
+      <%= link_to "Edit", edit_book_paht %>
+      <%= link_to "Destroy", book_paht(@book), method: :delete %>
+    <% end %>
+    <p><%= @book.user.name</p>
+  </div>
+</div>
