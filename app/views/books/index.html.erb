@@ -1,24 +1,12 @@
 <div>
   <div>
     <div>
-      <h1>New book</h1>
-      <%= form_with model: @book, url: books_path, local:true do |f| %>
-        <h4>Title</h4>
-        <%= f.text_field :title %>
-        <h4>Opinion</h4>
-        <%= f.text_field :body %>
-        <%= f.submit 'Create Book' %>
-      <% end%>
+      <%= render 'users/info', user: current_user %>
+      <%= render 'books/new', book: Book.new %>
     </div>
   </div>
 
   <div>
-      <% @books.each do |book| %>
-       <div>
-         <p><%= book.title %></p>
-         <p><%= book.body %></p>
-       </div>
-      <% end %>
-
+    <%= render 'books/all', books: Book.page(params[:page]).reverse_order %>
   </div>
 </div>
