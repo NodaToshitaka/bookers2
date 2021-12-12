@@ -1,0 +1,12 @@
+<h1>Books</h1>
+<% books.each do |book| %>
+<div>
+  <div>
+    <%= attachment_image_tag book.user, :profile_image_id, :fill, 60, 60, fallback: "no_image.jpg" %>
+    <p><%= link_to book.user.name, user_path %></p>
+  </div>
+  <p><%= book.title %></p>
+  <p><%= book.body %></p>
+</div>
+<% end %>
+<%= paginate books %>

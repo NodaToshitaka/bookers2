@@ -14,6 +14,9 @@
     <% if user_signed_in? %>
      <div>
         <li>
+          <%= link_to "Home", user_path(current_user.id) %>
+        </li>
+        <li>
           <%= link_to "Books", books_path %>
         </li>
         <li>
@@ -31,6 +34,6 @@
     <%= yield %>
   </body>
   <footer>
-    
+
   </footer>
 </html>
