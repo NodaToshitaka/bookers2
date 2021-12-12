@@ -1,12 +1,5 @@
 <div>
   <div>
-    <h1>User info</h1>
-    <%=  attachment_image_tag user, :profile_image_id, :fill, 60, 60, fallback: "no_image.jpg" %>
-    <p>name<%= user.name %></p>
-    <p>introduction<%= user.introduction %></p>
-    <%= link_to "edit", edit_user_path(user) %>
-  </div>
-  <div>
     <h1>New book</h1>
       <%= form_with model: book, url: books_path, local:true do |f| %>
         <h4>Title</h4>
@@ -16,5 +9,5 @@
         <%= f.submit 'Create Book' %>
       <% end%>
   </div>
-  
+
 </div>

@@ -1,7 +1,8 @@
 <div>
   <div>
     <div>
-      <%= render 'books/new', book: Book.new, user: User.find(params[:id]) %>
+      <%= render 'users/info', user: current_user %>
+      <%= render 'books/new', book: Book.new %>
     </div>
   </div>
 
