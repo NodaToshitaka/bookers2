@@ -1,11 +1,16 @@
 <div>
   <div>
+
     <div>
-      <%= render 'users/info', user:  %>
+      <%= render 'users/info', user: current_user %>
       <%= render 'books/new', book: Book.new %>
     </div>
     <div>
-      <%= render 'books/all', books: @user.books.page(params[:page]).reverse_order %>
+      <h1>Books</h1>
+      <div>
+        <%= render 'books/all', books: @user.books.page(params[:page]).reverse_order %>
+      </div>
+
     </div>
   </div>
 </div>
