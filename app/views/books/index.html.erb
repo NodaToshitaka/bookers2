@@ -1,16 +1,18 @@
+
 <div>
+   <%= render "devise/shared/error_messages", resource: @book %>
   <div>
     <div>
       <%= render 'users/info', user: current_user %>
-      <%= render 'books/new', book: Book.new %>
+      <%= render 'books/new', book: @book %>
     </div>
   </div>
 
   <div>
     <h1>Book</h1>
     <div>
-     <%= render 'books/all', books: Book.page(params[:page]).reverse_order %> 
+     <%= render 'books/all', books: Book.page(params[:page]).reverse_order %>
     </div>
-    
+
   </div>
 </div>

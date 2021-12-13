@@ -1,3 +1,4 @@
+
 <div>
   <div>
     <%= render 'users/info', user: @book.user %>
@@ -11,7 +12,7 @@
     <p><%= @book.body %></p>
     <% if @book.user == current_user %>
       <%= link_to "Edit", edit_book_path(@book) %>
-      <%= link_to "Destroy", book_path(@book), method: :delete %>
+      <%= link_to "Destroy", book_path(@book), method: :delete,  data: { confirm: "削除しますか？" } %>
     <% end %>
   </div>
 </div>
