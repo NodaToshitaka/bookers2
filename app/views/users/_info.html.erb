@@ -1,11 +1,29 @@
 <div>
-  <h1>User info</h1>
-  <%=  attachment_image_tag user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %>
-  <p>name<%= user.name %></p>
-  <p>introduction<%= user.introduction %></p>
-  <% if user == current_user %>
-    <%= link_to "edit", edit_user_path(user) %>
-  <% else %>
-    <%= link_to "edit", user_path(current_user) %>
-  <% end %>
+  <h2>User info</h2>
+  <table class="table">
+    <tbody>
+      <tr>
+        <td><%=  attachment_image_tag user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>name</td>
+        <td><%= user.name %></td>
+      </tr>
+      <tr>
+        <td>introduction</td>
+        <td><%= user.introduction %></td>
+      </tr>
+      <tr>
+        <td>
+          <% if user == current_user %>
+            <%= link_to "edit", edit_user_path(user) %>
+          <% else %>
+            <%= link_to "edit", user_path(current_user) %>
+          <% end %>
+        </td>
+        <td colspan="1"></td>
+      </tr>
+    </tbody>
+  </table>
 </div>
