@@ -1,21 +1,18 @@
-<div>
-  <div>
-    <%= render 'users/info', user: current_user %>
-    <%= render 'books/new', book: Book.new %>
-  </div>
-  <div>
-    <div>
-      <% @users.each do |user| %>
-        <div>
-           <%= attachment_image_tag user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
-           <p><%= user.name %></p>
-           <%= link_to "show", user_path(user) %>
-        </div>
-      <% end %>
-      <%= paginate @users %>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'users/info', user: current_user %>
+      <%= render 'books/new', book: Book.new %>
     </div>
-
-
-
+      <div class="col-md-8 offset-md-1">
+        <% @users.each do |user| %>
+          <div>
+             <%= attachment_image_tag user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
+             <p><%= user.name %></p>
+             <%= link_to "show", user_path(user) %>
+          </div>
+        <% end %>
+        <%= paginate @users %>
+      </div>
   </div>
 </div>
