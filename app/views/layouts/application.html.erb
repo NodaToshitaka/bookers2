@@ -5,43 +5,61 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <script src="https://kit.fontawesome.com/060a47055d.js" crossorigin="anonymous"></script>
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <header class="shadow-sm">
-  <nav class="navbar navbar-expand-lg navbar-light">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
       <a class="navbar-brand" href="/">Bookers</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav ml-auto pr-1">
         <% if user_signed_in? %>
         <li>
-          <%= link_to "Home", user_path(current_user.id) %>
+          <%= link_to user_path(current_user.id) do %>
+            <i class="fas fa-home">Home</i>
+          <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to "users", users_path %>
+          <%= link_to users_path do %>
+            <i class="fas fa-users">Users</i>
+          <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to "Books", books_path %>
+          <%= link_to books_path do %>
+            <i class="fas fa-book-open">Books</i>
+          <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to "logout", destroy_user_session_path, method: :delete %>
+          <%= link_to destroy_user_session_path, method: :delete do %>
+            <i class="fas fa-sign-out-alt">Log out</i>
+          <% end %>
         </li>
         <% else %>
         <li class="nav-item">
-          <%= link_to "Home", top_path %>
+          <%= link_to root_path do %>
+            <i class="fas fa-home">Home</i>
+          <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to "About", about_path %>
+          <%= link_to home_about_path do %>
+            <i class="fas fa-link">About</i>
+          <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to "sign up", new_user_registration_path %>
+          <%= link_to new_user_registration_path do %>
+            <i class="fas fa-user-plus">Sign up</i>
+          <% end %>
        </li>
        <li class="nav-item">
-         <%= link_to "login", new_user_session_path %>
+         <%= link_to new_user_session_path do %>
+           <i class="fas fa-sign-in-alt">Log in</i>
+          <% end %>
        </li>
        <% end %>
        </ul>
@@ -59,6 +77,11 @@
     <%= yield %>
   </body>
   <footer>
-    <p>CopyRight Infratop.inc</p>
+    <div class="container mt-5">
+      <div class="row">
+        <div class="mx-auto">CopyRight Infratop.inc</div>
+      </div>
+    </div>
+
   </footer>
 </html>
