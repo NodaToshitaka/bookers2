@@ -16,3 +16,17 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+
+
+
+header a {
+    color: #ffffff;
+}
+
+#error_explanation {
+    color: red;
+}
+
+.notice {
+    color: green;
+}
